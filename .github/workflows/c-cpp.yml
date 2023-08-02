@@ -13,17 +13,17 @@ jobs:
       - name: Update binaries
         run: |
           $ErrorActionPreference = 'SilentlyContinue'
-          git clone --recursive https://github.com/uNetworking/uWebSockets.js.git
+          git clone --recursive https://github.com/jTachyon/uWebSockets.js.git
           cd uWebSockets.js
           nmake
           git fetch origin binaries:binaries
           git checkout binaries
           xcopy /Y dist\*.node .
           git status
-          git config --global user.email "alexhultman@gmail.com"
-          git config --global user.name "Alex Hultman"
-          git commit -a -m "[GitHub Actions] Updated windows-latest binaries"
-          git push "https://unetworkingab:${{ secrets.SECRET }}@github.com/uNetworking/uWebSockets.js" binaries
+          git config --global user.name "[GitHub Actions]"
+          git config --global user.email "jTachyon@uWebSockets.js"
+          git commit -a -m "Updated windows-latest binaries"
+          git push "https://Swarup Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
   build-unix:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -35,7 +35,7 @@ jobs:
           sudo xcode-select -switch /Applications/Xcode_12.2.app || true
           sudo apt update || true
           sudo apt install -y g++-aarch64-linux-gnu || true
-          git clone --recursive https://github.com/uNetworking/uWebSockets.js.git
+          git clone --recursive https://github.com/jTachyon/uWebSockets.js.git
           cd uWebSockets.js
           make
           git fetch origin binaries:binaries
@@ -44,10 +44,10 @@ jobs:
           git status
           git rev-parse master > source_commit
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
-          git config --global user.email "alexhultman@gmail.com"
-          git config --global user.name "Alex Hultman"
-          git commit -a -m "[GitHub Actions] Updated ${{ matrix.os }} binaries" || true
-          git push "https://unetworkingab:${{ secrets.SECRET }}@github.com/uNetworking/uWebSockets.js" binaries
+          git config --global user.name "[GitHub Actions]"
+          git config --global user.email "jTachyon@uWebSockets.js"
+          git commit -a -m "Updated ${{ matrix.os }} binaries" || true
+          git push "https://Swarup Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
 
   build-arm:
     runs-on: ubuntu-latest
@@ -61,7 +61,7 @@ jobs:
             os: bullseye
     steps:
       - name: Clone
-        run: git clone --recursive https://github.com/uNetworking/uWebSockets.js.git
+        run: git clone --recursive https://github.com/jTachyon/uWebSockets.js.git
       - uses: uraimo/run-on-arch-action@v2.3.0
         name: Compile binaries
         with:
@@ -85,8 +85,8 @@ jobs:
           git status
           git rev-parse master > source_commit
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
-          git config --global user.email "alexhultman@gmail.com"
-          git config --global user.name "Alex Hultman"
+          git config --global user.name "[GitHub Actions]"
+          git config --global user.email "jTachyon@uWebSockets.js"
           git add *.node *.js
-          git commit -a -m "[GitHub Actions] Updated linux-${{ matrix.arch }} binaries" || true
-          git push "https://unetworkingab:${{ secrets.SECRET }}@github.com/uNetworking/uWebSockets.js" binaries
+          git commit -a -m "Updated linux-${{ matrix.arch }} binaries" || true
+          git push "https://Swarup Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
