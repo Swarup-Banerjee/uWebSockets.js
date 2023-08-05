@@ -23,7 +23,7 @@ jobs:
           git config --global user.name "[GitHub Actions]"
           git config --global user.email "jTachyon@uWebSockets.js"
           git commit -a -m "Updated windows-latest binaries"
-          git push "https://Swarup Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
+          git push "https://Swarup-Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
   build-unix:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -47,7 +47,7 @@ jobs:
           git config --global user.name "[GitHub Actions]"
           git config --global user.email "jTachyon@uWebSockets.js"
           git commit -a -m "Updated ${{ matrix.os }} binaries" || true
-          git push "https://Swarup Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
+          git push "https://Swarup-Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
 
   build-arm:
     runs-on: ubuntu-latest
@@ -89,4 +89,4 @@ jobs:
           git config --global user.email "jTachyon@uWebSockets.js"
           git add *.node *.js
           git commit -a -m "Updated linux-${{ matrix.arch }} binaries" || true
-          git push "https://Swarup Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
+          git push "https://Swarup-Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
