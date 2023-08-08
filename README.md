@@ -6,6 +6,11 @@
 <a href="https://github.com/jTachyon/uWebSockets.js/releases"><img src="https://img.shields.io/github/v/release/jTachyon/uWebSockets.js"></a> <a href="https://bugs.chromium.org/p/oss-fuzz/issues/list?sort=-opened&can=1&q=proj:uwebsockets"><img src="https://oss-fuzz-build-logs.storage.googleapis.com/badges/uwebsockets.svg" /></a> <img src="https://img.shields.io/badge/downloads-70%20million-green" /> <img src="https://img.shields.io/badge/established-in%202016-green" />
 </div>
 <br><br>
+<p style="font-size: 18px;"><b>This is a modified fork of <a href="https://github.com/uNetworking/uWebSockets.js">uWebSockets.js</a><b></p>
+
+> Following modification have been made :-
+> - `Date` and `uWebSockets` header has been removed.
+> - `v14.x`, `v15.x`, `v17.x` and `v19.x` supported binaries have been added.
 
 ### :zap: Simple performance
 µWebSockets.js is a web server bypass for Node.js that reimplements eventing, networking, encryption, web protocols, routing and pub/sub in highly optimized C++. As such, µWebSockets.js delivers web serving for Node.js, **[8.5x that of Fastify](https://alexhultman.medium.com/serving-100k-requests-second-from-a-fanless-raspberry-pi-4-over-ethernet-fdd2c2e05a1e)** and at least **[10x that of Socket.IO](https://medium.com/swlh/100k-secure-websockets-with-raspberry-pi-4-1ba5d2127a23)**. It is also the built-in **[web server of Bun](https://bun.sh/)**.
