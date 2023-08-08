@@ -22,6 +22,7 @@ jobs:
           git status
           git config --global user.name "[GitHub Actions]"
           git config --global user.email "jTachyon@uWebSockets.js"
+          git add *.node --ignore-errors
           git commit -a -m "Updated windows-latest binaries"
           git push "https://Swarup-Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
   build-unix:
@@ -46,6 +47,7 @@ jobs:
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
           git config --global user.name "[GitHub Actions]"
           git config --global user.email "jTachyon@uWebSockets.js"
+          git add *.node --ignore-errors
           git commit -a -m "Updated ${{ matrix.os }} binaries" || true
           git push "https://Swarup-Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
 
@@ -87,6 +89,6 @@ jobs:
           git checkout master docs/index.d.ts && mv docs/index.d.ts .
           git config --global user.name "[GitHub Actions]"
           git config --global user.email "jTachyon@uWebSockets.js"
-          git add *.node *.js
+          git add *.node *.js --ignore-errors
           git commit -a -m "Updated linux-${{ matrix.arch }} binaries" || true
           git push "https://Swarup-Banerjee:${{ secrets.GITHUB_TOKEN }}@github.com/jTachyon/uWebSockets.js" binaries
